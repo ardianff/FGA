@@ -1,0 +1,13 @@
+x= int(input('Masukkan Angka : '))
+soal = 1/(x+1/(x+1/(x+1/x)))
+print('     1')
+print('--------------')
+print('      1')
+print(x,'+ ----------')
+print('       1')
+print(x,'+ ----------')
+print('        1')
+print(x,'+ ----------')
+print('       ',x)
+
+print('Hasil Pembagian Bertingkat Diatas adalah', soal)
