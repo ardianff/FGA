@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox, filedialog
 import os
 root = tk.Tk()
-root.title("Untitle - Notepad")
+root.title("Untitled - Notepad")
 file = None
 def createWidgets() :
     global textArea
