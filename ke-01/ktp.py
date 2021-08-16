@@ -5,7 +5,7 @@ print(prov.center(50))
 kota = 'KOTA SEMARANG'
 print(kota.center(50))
 print('\n')
-NIK = str(3374102302990001)
+NIK = str(3304232201070001)
 print('NIK \t\t\t: '+ NIK)
 nama = 'ARDIAN FERDY FIRMANSYAH'
 print('Nama \t\t\t: '+ nama)
