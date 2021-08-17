@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Notepad</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'images/notes.png' %}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="{% url 'url_list' %}" class="text-wrap navbar-brand"> <span>  Notepad  </span> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="{% url 'url_create' %}" class="nav-item">
+                            <span class=" btn btn-secondary nav-brand"> Buat Baru </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="container">
+        <div id="content">
+            {% if list|length == 0 %}
+            <h2 style="color: #a1a1a1;"> <i>Data Note Anda Masih Kosong Silahkan Buat Baru !</i> </h2>
+            {% else %} {% for notepad in list %}
+            <div class="col-sm">
+                <br>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="notepad_name card-title">Judul : {{ notepad.name }} </h5>
+                        <h6 class="notepad_date">Tanggal Disimpan : {{ notepad.dt_creation }} </h6>
+                        <p class="card-text" style="text-align: justify;font-size: 14px;"> {{ notepad.note }}</p>
+                        <div class="notepad_manage">
+                            <div class="edit_bnt">
+                                <a href="{% url 'url_edit' notepad.id %}"><button class="btn btn-warning"> Edit </button></a>
+                                <a href="{% url 'url_view' notepad.id %}"><button class="btn btn-success"> Lihat </button></a>
+                                <a href="{% url 'url_remove' notepad.id %}"> <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Note Ini ?')">Hapus</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %} {% endif %}
+            </div>
+
+        </div>
+</body>
+
+</html>

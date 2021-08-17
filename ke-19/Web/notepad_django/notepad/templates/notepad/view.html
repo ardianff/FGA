@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ notepad.name }} </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'images/notes.png' %}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="{% url 'url_list' %}" class="text-wrap navbar-brand"> <span>  Notepad  </span> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav>
+    <div class="container" id="container">
+        <div class="container_markdown">
+            <div class="notepad_info">
+                <h1 class="notepad_name">Judul : {{ notepad.name }} </h1>
+                <h6 class="notepad_date">Disimpan : {{ notepad.dt_creation }} </h6>
+            </div>
+            <div class="note">
+                <p>Isi Catatan : {{ notepad.note }}</p>
+            </div>
+            <a href="{% url 'url_list' %}"><button type="submit" class="btn btn-success">Kembali</button></a>
+        </div>
+    </div>
+
+</body>
+
+</html>
