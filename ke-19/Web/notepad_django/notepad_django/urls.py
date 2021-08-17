@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from notepad.views import notepad_list, notepad_create, notepad_remove, notepad_view, notepad_edit
+from notepad.views import list_data, create, remove, view, edit
 
 urlpatterns = [ 
     path('admin/', admin.site.urls),
-    path('lihat/<int:pk>', notepad_view, name='url_view'),                      
-    path('buat/', notepad_create, name='url_create'),
-    path('hapus/<int:pk>', notepad_remove, name='url_remove'),
-    path('edit/<int:pk>', notepad_edit, name='url_edit'),
-    path('', notepad_list, name='url_list')    
+    path('lihat/<int:get_id>', view, name='url_view'),                      
+    path('buat/', create, name='url_create'),
+    path('hapus/<int:get_id>', remove, name='url_remove'),
+    path('edit/<int:get_id>', edit, name='url_edit'),
+    path('', list_data, name='url_list')    
 ]
