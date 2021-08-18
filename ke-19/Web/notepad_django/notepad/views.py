@@ -5,9 +5,9 @@ from .forms import NotepadForm
 
 # Create your views here.                                                                    
 
-def view(request, get_id):
+def view(request, pk):
     data = {} 
-    data['notepad'] = Notepad.objects.get(get_id=get_id)    
+    data['notepad'] = Notepad.objects.get(pk=pk)    
     return render(request, 'notepad/view.html', data)
 
 def create(request):  
@@ -18,9 +18,9 @@ def create(request):
         return redirect('url_list')
     data['form'] = form             
     return render(request, 'notepad/create.html', data)
-def edit(request, get_id):  
+def edit(request, pk):  
     data = {}
-    notepad = Notepad.objects.get(get_id=get_id)  
+    notepad = Notepad.objects.get(pk=pk)  
     form = NotepadForm(request.POST or None, instance=notepad)
     if form.is_valid():  
         form.save()
@@ -29,8 +29,8 @@ def edit(request, get_id):
     data['notepad'] = notepad
     return render(request, 'notepad/edit.html', data)
 
-def remove(request, get_id): 
-    notepad = Notepad.objects.get(get_id=get_id)
+def remove(request, pk): 
+    notepad = Notepad.objects.get(pk=pk)
     notepad.delete()
     return redirect('url_list')
  

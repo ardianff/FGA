@@ -20,9 +20,9 @@ from notepad.views import list_data, create, remove, view, edit
 
 urlpatterns = [ 
     path('admin/', admin.site.urls),
-    path('lihat/<int:get_id>', view, name='url_view'),                      
+    path('lihat/<int:pk>', view, name='url_view'),                      
     path('buat/', create, name='url_create'),
-    path('hapus/<int:get_id>', remove, name='url_remove'),
-    path('edit/<int:get_id>', edit, name='url_edit'),
+    path('hapus/<int:pk>', remove, name='url_remove'),
+    path('edit/<int:pk>', edit, name='url_edit'),
     path('', list_data, name='url_list')    
 ]
