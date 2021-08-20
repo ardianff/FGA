@@ -96,7 +96,6 @@ def pilih ():
         time.sleep(2)
         os.system("cls")
         mulai()
-import sys,time
 def proses():
     try:
         L="/-\\|"
